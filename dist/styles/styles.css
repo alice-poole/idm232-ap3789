@@ -1,0 +1,230 @@
+/*Colors*/
+:root {
+    --color-black: #2B2421;
+    --color-white: #EEE7E4;
+    --color-pink-light: #F5C2BE;
+    --color-pink-dark: #F0666E;
+    --color-yellow-light: #EBD5A7;
+    --color-yellow-dark: #E2C25A;
+    --color-green-light: #A2B765;
+    --color-green-dark: #7F914D;
+    --color-purple-light: #C4B5CF;
+    --color-purple-dark: #8B6FA0;
+}
+/*
+.background-black {
+    background-color: var(--color-black);
+}
+
+.background-white {
+    background-color: var(--color-white);
+}
+
+.background-pink-light {
+    background-color: var(--color-pink-light);
+}
+
+.background-pink-dark {
+    background-color: var(--color-pink-dark);
+}
+
+.background-yellow-light {
+    background-color: var(--color-yellow-light);
+}
+
+.background-yellow-dark {
+    background-color: var(--color-yellow-dark);
+}
+
+.background-green-light {
+    background-color: var(--color-green-light);
+}
+
+.background-green-dark {
+    background-color: var(--color-green-dark);
+}
+
+.background-purple-light {
+    background-color: var(--color-purple-light);
+}
+
+.background-purple-dark {
+    background-color: var(--color-purple-dark);
+}
+*/
+
+body {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    line-height: 140%;   /* within paragraph */
+    margin-bottom: 0; /* between paragraphs */
+}
+
+button {
+    display: flex;
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    height: 36px;
+    margin: 16px;
+    padding: 16px;
+    align-items: center;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+h1 {
+    font-family: "Vollkorn", serif;
+    font-size: 3.052rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-family: "Vollkorn", serif;
+    font-size: 2.441rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-family: "Vollkorn", serif;
+    font-size: 1.953rem;
+    font-weight: 500;
+}
+
+h4 {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.563rem;
+    font-weight: 400;
+}
+
+h5 {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+p {
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.center {
+    text-align: center;
+}
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
+.featured-image {
+    border-radius: 36px;
+    height: auto;
+    object-fit: cover;
+    max-height: 400px;
+    width: 100%;
+    align-self: center;
+}
+
+main {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 80%;
+}
+
+nav {
+    align-content: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    width: 98%;
+}
+
+.nav {
+    height: 40px;
+    padding: 8px 16px;
+
+}
+
+.nav-image {
+    height: 64px;
+    margin: 0;
+    padding: 4px;
+    align-self: center;
+}
+
+.nav-input {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    align-self: center;
+    align-content: space-between;
+}
+
+input {
+    height: 1.25rem;
+    padding: 8px 32px;
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.neumorphic-white {
+    border-style:none;
+    border-radius: 36px;
+    box-shadow:  20px 20px 60px #cac4c2,
+    -20px -20px 60px #ffffff;
+}
+
+.neumorphic-white:hover {
+    background: linear-gradient(145deg, #e6e2d4, #fffffb);
+    box-shadow:  8px 8px 16px #c2bfb3, -8px -8px 16px #ffffff;
+}
+.neumorphic-white:onclick {
+    background: linear-gradient(145deg, #e6e2d4, #fffffb);
+    box-shadow:  8px 8px 16px #c2bfb3, -8px -8px 16px #ffffff;
+}
+
+.neumorphic-yellow-light {
+    background: var(--color-yellow-light);
+    border: none;
+    border-radius: 36px;
+    box-shadow:  20px 20px 60px #cac4c2,
+    -20px -20px 60px #ffffff;
+}
+
+.neumorphic-yellow-light:hover {
+    background: linear-gradient(145deg, #d4c096, #fbe4b3);
+    box-shadow:  8px 8px 16px #c2bfb3, -8px -8px 16px #ffffff;
+}
+
+.neumorphic-yellow-light:onclick {
+    background: #EBD5A7;
+    box-shadow: inset 20px 20px 60px #c8b58e,
+            inset -20px -20px 60px #fff5c0;
+}
+
+.neumorphic-inset {
+    background: var(--color-white);
+    border-radius: 36px;
+    border-style: none;
+    box-shadow: inset 8px 8px 16px #b5b0ad, inset -8px -8px 16px #ffffff;
+    width: 65%;
+}
+
+.neumorphic-inset:onclick {
+    background: var(--color-white);
+    border-style: none;
+    box-shadow: inset 8px 8px 16px #b5b0ad, inset -8px -8px 16px #ffffff;
+}
