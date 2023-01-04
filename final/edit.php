@@ -1,33 +1,33 @@
 <?php
-// Make sure the path is correct for each include on this page. Delete this comment once done
-include_once __DIR__ . '/idm232/app.php';
-$page_title = '{$post['title']}';
+include_once __DIR__ . '/app.php';
+
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+} else {
+    die('ID is needed in URL');
+}
+$post = get_post_by_id($id);
+$page_title = 'Editing ' . $post['title'];
 include_once __DIR__ . '/_components/header.php';
+include_once __DIR__ . '/_components/navigation-main.php';
 ?>
-<h2>Edit Post</h2>
+<h2>Editing <?php echo $post['title'];?></h2>
+<?php $site_url = site_url();?>
 
-<form action="<?php echo site_url(); ?>/includes/process-edit-posts.php" method="POST">
+<form action="<?php echo site_url();?>/process-edit-posts.php?id=<?php echo $id ?>" method="POST">
     <label for="">Title</label>
-    <input type="text" name="title">
-
+    <input type="text" name="title" value="<?php echo $post['title']?>">
+    <br><br>
     <label for="">Image</label>
-    <input type="text" name="image">
-
+    <input type="text" name="image" value="<?php echo $post['image']?>">
+    <br><br>
     <label for="">Tags</label>
-    <input type="text" name="tags">
-
+    <input type="text" name="tags" value="<?php echo $post['tags']?>">
+    <br><br>
     <label for="">Contents</label>
-    <input type="text" name="contents">
-
+    <textarea name="contents" rows="15" columns="30"><?php echo $post['contents']?></textarea>
+    <br><br>
     <input type="submit" value="submit">
-
-<h1>'{$post['title']}'</h1>
-<br>
-<h3>'{$post['tags']}'</h3>
-<br>
-<img class="leading-image" src="{$post['image']}">
-<br>
-<p>'{$post['contents']}'</p>
 
 <?php
 include_once __DIR__ . '/idm232/_components/footer.php';

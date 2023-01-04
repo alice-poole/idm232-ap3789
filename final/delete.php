@@ -1,7 +1,19 @@
 <?php
-// Make sure the path is correct for each include on this page. Delete this comment once done
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+} else {
+    die('ID is needed in URL');
+}
 include_once __DIR__ . '/app.php';
-$page_title = '{$post['title']}';
-include_once __DIR__ . '/_components/header.php';
-delete_post_by_id('$post['id']}');
-include_once __DIR__ . '/_components/footer.php';
+$post = get_post_by_id($id);
+$page_title = 'Deleting ' . $post['title'];
+$result = delete_post_by_id($id);
+
+// Check there are no errors with our SQL statement
+if ($result) {
+    redirect_to('');
+} 
+else {
+    $error_message = 'Sorry there was an error deleting the post: ' . mysqli_error($db_connection);
+    echo $error_message;
+}

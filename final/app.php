@@ -10,7 +10,7 @@ $whitelist_host = ['127.0.0.1', '::1'];
 if (in_array($_SERVER['REMOTE_ADDR'], $whitelist_host)) {
     // You are in the Local environment. Pull in the correct .env file.
     if (file_exists(__DIR__ . '/.env.local.php')) {
-        include_once __DIR__ . '/.env.local.php';
+        include_once __DIR__ . '/ .env.local.php';
     } else {
         die('Please make sure you have a .env.local.php file');
     }
@@ -21,10 +21,13 @@ if (in_array($_SERVER['REMOTE_ADDR'], $whitelist_host)) {
         include_once __DIR__ . '/.env.production.php';
     } else {
         // if the file does not exist, throw an error
-        die('Please make sure you have a .env.production.php file');
+        die(__DIR__ . 'Please make sure you have a .env.production.php file');
     }
 }
 
 // Include the database connection. Order matters and should always be first
 include_once __DIR__ . '/_includes/database.php';
 include_once __DIR__ . '/_includes/helper-functions.php';
+include_once __DIR__ . '/_includes/posts-functions.php';
+$posts = get_posts();
+$site_url = site_url();

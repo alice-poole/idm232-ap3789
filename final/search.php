@@ -1,7 +1,8 @@
 <?php
-include_once __DIR__ . '/idm232/app.php';
+include_once __DIR__ . '/app.php';
+include_once __DIR__ . '/_components/header.php';
+include_once __DIR__ . '/_components/navigation-main.php';
 $page_title = 'Search Results';
-include_once __DIR__ . '/idm232/_components/header.php';
 $posts = get_posts();
 
 // Check if search exist in query
@@ -29,37 +30,35 @@ if ($results->num_rows > 0) {
 
 <h1>Search Results</h1>
 <h2>You searched for "<?php echo $search; ?>"</h2>
-<?php
-        // If no results, echo no results
-        if (!$posts_results) {
-            echo '<p>No results found</p>';
-        }
-?>
-        <?php
-// If error query param exist, show error message
-  if (isset($_GET['error'])) {
-      echo '<p>' . $_GET['error'] . '</p>';
-  }?>
-
-    <?php
-    // If we have results, show them
-      if ($posts_results) {
-          while ($posts_results = mysqli_fetch_assoc($results)) {
+<?php 
+// If we have results, show them
+    if ($posts_results) {
+        while ($posts_results = mysqli_fetch_assoc($results)) {
+            $img = $posts_results['image'].'.jpg';
             echo "
-            <div class="list">
-                <a href='{$site_url}/posts/>
-                <img class="leading-image" src={$post['image']}>
-                <h3>{$post['title']}</h3>
+          <div class=\"container\">
+            <div class=\"list\">
+              <a href={$site_url}/view.php?id={$posts_results['id']}>
+                <div class=\"list\">
+                <img class=\"leading-image\" src={$site_url}/dist/images/recipes/{$img}>
+                <h3>{$posts_results['title']}</h3>
+                </div>
+              </a>
             </div>
-            ";
-          }
+            <div class=\"list\">
+              <a href={$site_url}/edit.php?id={$posts_results['id']}>Edit <span class=\"material-symbols-outlined\">edit</span></a>
+              <a href={$site_url}/delete.php?id={$posts_results['id']}>Delete <span class=\"material-symbols-outlined\">delete</span></a>
+            </div>
+          </div>
+          ";
+        }
+      } else {
+        // If no results, echo no results
+        echo '<p>No results found.</p>';
       }
 ?>
 
   </div>
 </div>
 
-
-
-<?php include_once __DIR__ . '/idm232/_components/footer.php';
-?>
+<?php include_once __DIR__ . '/_components/footer.php';?>

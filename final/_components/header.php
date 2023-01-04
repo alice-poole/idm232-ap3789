@@ -6,7 +6,6 @@ if (!isset($page_title)) {
 }
 $site_title = 'Bites By Bloom';
 $document_title = $page_title . ' | ' . $site_title; // Home | Bites By Bloom
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,11 +16,12 @@ $document_title = $page_title . ' | ' . $site_title; // Home | Bites By Bloom
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="<?php echo site_url(); ?>/dist/images/favicon.ico">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Vollkorn&display=swap">
-  <link rel="stylesheet" href="<?php echo site_url(); ?>/dist/styles/default.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
   <link rel="stylesheet" href="<?php echo site_url(); ?>/dist/styles/style.css">
   <title><?php echo $document_title ; ?></title>
 </head>
 
 <body>
   <!-- Main Content Begins -->
-  <?php include_once __DIR__ . '/idm232/components/navigation-main.php'; ?>
+  <?php $posts = get_posts();?>
+  <?php $site_url = site_url();?>

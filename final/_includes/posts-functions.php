@@ -11,9 +11,8 @@
 function add_post($title, $tags, $image, $contents)
 {
     global $db_connection;
-    $image = site_url() . '/dist/images/recipes/' . $image . '.jpg';
-    $query = 'INSERT INTO posts';
-    $query .= ' (title, tags, image, contents)';
+    $query = "INSERT INTO posts";
+    $query .= " (title, tags, image, contents)";
     $query .= " VALUES ('$title', '$tags', '$image', '$contents')";
     $result = mysqli_query($db_connection, $query);
     return $result;
@@ -60,9 +59,8 @@ function get_post_by_id($id)
 function edit_post($title, $tags, $image, $contents, $id)
 {
     global $db_connection;
-    $image = $image . ".jpg";
-    $query = 'UPDATE posts';
-    $query .= " SET title = '{$title}', image = '{$image}, tags = '{$tags}', contents = '{$contents}'";
+    $query = "UPDATE posts";
+    $query .= " SET title = '$title', image = '$image', tags = '$tags', contents = '$contents'";
     $query .= " WHERE id = $id";
     $result = mysqli_query($db_connection, $query);
     return $result;
@@ -76,7 +74,7 @@ function edit_post($title, $tags, $image, $contents, $id)
 function delete_post_by_id($id)
 {
     global $db_connection;
-    $query = "DELETE FROM posts WHERE id = $id";
+    $query = "DELETE FROM posts WHERE id = '$id'";
     $result = mysqli_query($db_connection, $query);
     return $result;
 }

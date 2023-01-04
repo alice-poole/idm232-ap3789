@@ -1,14 +1,37 @@
 :root {
     /*Color*/
     --black: #1D1B19;
-    --surface: #E9E1D9;
+    --surface: #fffaf0;
     --outline: #7C766F;
-    --yellow: #EBD5A7;
+    --yellow: #f8e8c6;
     background-color: var(--background);
     /*Typography*/
     font-family: 'Open Sans', sans-serif;
     font-size: 0.875rem;
     color: var(--on-background);
+}
+
+a, a:visited {
+    color: var(--black);
+    text-decoration: none;
+}
+
+.brand {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.container {
+    box-sizing: border-box;
+    background-color: var(--surface);
+    border-radius: 16px;
+    border: 1px solid var(--outline);
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 16px auto;
+    min-height: 72px;
+    padding: 16px;
+    width: 100%;
 }
 
 h1, h2, h3 {
@@ -31,9 +54,9 @@ h6 {
     font-size: 1rem;
 }
 
-header {
+.header {
     align-items: center;
-    display: flexbox;
+    display: flex;
     flex-flow: row nowrap;
     height: 112px;
     justify-content: space-between;
@@ -44,44 +67,44 @@ header {
     padding: 3rem auto;
 }
 
-.hero_image {
-    border-radius: 24px;
+.hero-image {
+    border-radius: 36px;
+    height: 400px;
+    object-fit: cover;
     width: 100%;
-    height: 300px;
 }
 
-input {
-    border-radius: 50%;
+input, textarea {
+    border-radius: 4px;
 }
 
 .list {
-    box-sizing: border-box;
-    background-color: var(--surface);
-    border-radius: 16px;
-    border: 1px solid var(--outline);
-    display: flexbox;
-    flex-flow: row;
-    min-height: 72px;
-    padding: 16px;
-    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
 }
 
 .leading-image {
     background-color: var(--surface-variant);
     background-size: cover;
-    border-radius: var(--large);
+    border-radius: 16px;
     height: 96px;
+    margin-right: 24px;
     width: 96px;
 }
 
 .list-text {
-    display: flexbox;
+    display: flex;
+}
+
+.logo {
+    height: 64px;
+    width: 64px;
 }
 
 main {
+    align-content: center;
     background-color: var(--surface);
-    box-sizing: border-box;
-    display: flexbox;
+    display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     margin: 16px;
@@ -97,13 +120,15 @@ main {
 
 p {
     color: var(--black);
-    font-size: 0.875rem;
+    font-size: 1.25rem;
+    line-height: 140%;
 }
 
 .write-button {
     background-color: var(--yellow);
+    border-radius: 16px;
     bottom: 32px;
-    padding: 8px;
+    padding: 16px;
     position: fixed;
     right: 32px;
 }
